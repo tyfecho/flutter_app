@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'selectpage.dart';
 import 'package:english_words/english_words.dart';
 
 void main() => runApp(MyApp());
@@ -7,7 +8,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Wrong Planet'),
     );
   }
 }
@@ -94,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              'Main Game Screen',
             ),
             Text(
               '$_counter',
@@ -104,9 +104,18 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          Navigator.push (
+            context,
+            MaterialPageRoute (
+              builder: (context) => SelectPage (
+
+              )
+            )
+          );
+        },
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: Icon(Icons.refresh),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
